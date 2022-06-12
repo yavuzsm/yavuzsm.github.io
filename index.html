@@ -9,29 +9,45 @@
     <meta name="viewport" content="width=device-width initial-scale=1, maximum-scale=1" >
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"   integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    
+    
+    
+    
+
 
 </head>
 
 <script type="text/css"></script>
- <body>
+
+<body>
+   
+
+    
     <header>
+      
         <div id="index.html"></div>
          <nav class="container">
              <div class="bar"> 
                  <div class="profil">
                       <a href="#" ><img src="logo.png" id="logo" title="logo"/></a>
+                      
                  </div>
-                     
-                             <ul class="barlar">
-                                 
+                            <ul class="barlar">
                                       <li ><a href="#index.html">ANASAYFA</a></li>
                                       <li ><a href="#hakkimda.html"> HAKKIMDA</li></a>
-                                      <li ><a href="#blog.html"> BLOG</li></a>
+                                      <li ><a href="#projelerim.html"> PROJELERİM</li></a>
                                       <li ><a href="#iletisim.html"> İLETİŞİM</li></a>
-                              </ul>
-    
+                            </ul>
              </div>
               <div class="center">
+                <div class="slider">
+                    <ul class="slides">
+                        <li class="slide"><img src="https://via.placeholder.com/900x400" alt=""></li>
+                        <li class="slide"><img src="https://via.placeholder.com/900x400" alt=""></li>
+                        <li class="slide"><img src="https://via.placeholder.com/900x400" alt=""></li>
+                    </ul>
+                </div>
                   <h1>WEB SİTEME<h1>
                       <h2>HOŞ GELDİNİZ!</h2>
                   <div class="button">
@@ -50,11 +66,68 @@
         <h2>Hakkımda</h2>
         <h5>Yazılım Mühendisi </h5>
         <p>Merhaba ! Ben Yavuz Selim. İnönü Üniversitesi Yazılım Mühendisliği Bölümü 1.sınıf öğrencisiyim. 1. sınıfta olmama rağmen kendimi geliştirmek için uğraşıyorum. Çünkü yazılımı seviyorum.</p>
+        <p>PHP</p>
+<div class="skill">
+  <div class="skills php">40%</div>
+</div>
+<p>İngilizce</p>
+    <div class="skill">
+      <div class="skills ing">70%</div>
     </div>
     </div>
-
     
- </section>
+        </div>
+    </div>
+    
+    </section>
+    
+<div id="projelerim.html"> </div>
+ <div  class="alt">
+    <p>Proje ID</p>
+    <input type="text" class="kontrol" id="kullanici_id" > <br>
+    <p>Proje Başlığı</p>
+    <input type="text" class="kontrol" id="proje_baslik" > <br>
+    <p>Proje Adı</p>
+    <input type="text" class="kontrol" id="proje_ad" >
+    <div>
+        <br>
+        <button class="alt_b">Ekle</button>
+    </div>
+</div>
+
+<table>
+<thead>
+   
+    <tr>
+        <th>Proje ID</th>
+        <th>Proje Başlığı</th>
+        <th>Proje Adı</th>
+    </tr>
+    <tr>
+        <th>001</th>
+        <th>WEB</th>
+        <th>Web Programlama Final Ödevi</th>
+    </tr>
+    <tr>
+        <th>002</th>
+        <th>İnönü</th>
+        <th>Login ve JWT Token Alma</th>
+    </tr>
+    <tr>
+        <th>003</th>
+        <th>Symfony</th>
+        <th>Symfony İle Sipariş Güncelleme</th>
+    </tr>
+    
+</thead>
+<tbody id="kullaniciTablo"></tbody>
+
+</table>
+
+
+<a href="CV.docx" id="download" download class="download-btn"> CV iNDİR
+    <i class="fa fa-download"></i>    
+    </a>
 
  <footer>
     <div class="iletisim"> 
@@ -63,8 +136,32 @@
             <a href="#"><i class="fab fa-facebook-square"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-telegram"></i></a> 
+           
             </p> 
     </div>
+    
 </footer>
+<script src="veri.js"></script>
 </body>
+<script>
+    var currentSlide = 1;
+    var $slider = $(".slides");
+    var slideCount = $slider.children().length;
+    var slideTime = 2000;
+    var animationTime = 800;
+    setInterval(function(){
+        $slider.animate({
+            marginLeft : '-=900px'
+        } , animationTime , function(){
+            currentSlide++;
+            if(
+                currentSlide ==slideCount
+            )
+            {
+                currentSlide =1 ;
+                $(this).css("margin-left", "0px");
+            }
+        }); 
+    }  , slideTime );
+</script>
 </html>
