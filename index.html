@@ -9,11 +9,8 @@
     <meta name="viewport" content="width=device-width initial-scale=1, maximum-scale=1" >
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"   integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    
-    
-    
-    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/27d4fde6c0.js" crossorigin="anonymous"></script>
 
 
 </head>
@@ -73,7 +70,9 @@
 <p>İngilizce</p>
     <div class="skill">
       <div class="skills ing">70%</div>
-    </div>
+    </div><br><br><br>
+ <p>Daha Detaylı Bilgiler İçin</p>
+    <button style="width:  75px; margin: 35px auto;" onclick="cv()">CV</button>
     </div>
     
         </div>
@@ -91,11 +90,11 @@
     <input type="text" class="kontrol" id="proje_ad" >
     <div>
         <br>
-        <button class="alt_b">Ekle</button>
+        <button class="alt_b" onclick="getKullanci()">Ekle</button>
     </div>
 </div>
 
-<table>
+<table class="tablo">
 <thead>
    
     <tr>
@@ -125,9 +124,7 @@
 </table>
 
 
-<a href="CV.docx" id="download" download class="download-btn"> CV iNDİR
-    <i class="fa fa-download"></i>    
-    </a>
+
 
  <footer>
     <div class="iletisim"> 
@@ -163,5 +160,24 @@
             }
         }); 
     }  , slideTime );
+</script>
+
+<script> 
+    function cv() {
+        var bilgilers = [
+            {"yazi":" Merhaba ben Yavuz Selim İnönü Üniversitesi Yazılım Mühendisliği okuyorum. Şuan PHP,Symfony,HTML,CSS,C,JS dillerinde kendimi geliştirmeye ve öğrenmeye çalışıyorum.Ayrıca blockchain dünyasına merak duyuyorum.  "},
+      
+                ];
+ 
+            var doc = new jsPDF();
+                bilgilers.forEach(function(bilgiler, i){
+                    doc.setFontSize(17);
+                    doc.setFontStyle('Arial');
+                 doc.text(5, 10 + (i * 10),
+                    "\n " + bilgiler.yazi + "\n ");
+                }   );
+                        doc.save('Test.pdf');
+            }
+
 </script>
 </html>
